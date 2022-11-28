@@ -15,7 +15,13 @@ table {
 th {
 	padding: 10px;
 	text-align: start;
-	background-color: rgb(234, 231, 231);
+	background-color: rgb(179, 213, 230);
+}
+
+button {
+	appearance: none;
+	padding: 5px 20px;
+	box-shadow: 2px 2px 5px rgb(168, 166, 166);
 }
 
 tr {
@@ -28,6 +34,23 @@ tr:nth-child(even) {
 
 tr:hover {
 	background-color: rgb(128, 230, 128);
+}
+
+input {
+	box-shadow: 1px 1px 2px rgb(156, 153, 153);
+	border: 1px solid rgb(152, 150, 150);
+	appearance: none;
+	padding: 2px;
+}
+
+input[type="checkbox"] {
+	height: 6px;
+	padding: 5px;
+	background-color: white;
+}
+
+label {
+	padding: 2px;
 }
 
 .main {
@@ -62,4 +85,26 @@ tr:hover {
 .links ul {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.popup-form {
+	padding: 20px;
+	display: none;
+	position: fixed;
+	left: clamp(120px, 16vw, 360px);
+	top: clamp(110px, 8.5vh, 9vh);
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: green;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	max-width: 150px;
+}
+
+.checkbox-label {
+	display: flex;
+	align-items: center;
 }

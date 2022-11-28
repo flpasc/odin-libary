@@ -25,17 +25,19 @@
 				</ul>
 			</div>
 			<div class="content">
-				<table>
-					<tr>
+				<table class="table" id="table">
+					<tr class="table-header">
 						<th>Author</th>
 						<th>Title</th>
 						<th>Pages</th>
 						<th>Read</th>
+						<th></th>
 					</tr>
 				</table>
-				<div id="add-book" class="popup-form">
+				<div id="add-popup" class="popup-form">
 					<form action="" class="form-container">
 						<h3>Add to libary</h3>
+
 						<label for="author">Author:</label>
 						<input type="text" name="book_author" id="author" />
 
@@ -50,7 +52,7 @@
 							<input type="checkbox" name="book_read" id="read" />
 						</div>
 
-						<button id="submit" type="submit">Add</button>
+						<button id="submit" type="button">Add</button>
 					</form>
 				</div>
 			</div>

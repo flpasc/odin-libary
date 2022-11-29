@@ -35,7 +35,6 @@ function addToLibary() {
 class Book {
 	constructor(author, title, pages, read) {
 		this.index = 0;
-
 		this.author = author;
 		this.title = title;
 		this.pages = pages;
@@ -69,8 +68,12 @@ function buildLibary() {
 		cell.appendChild(checkboxCell);
 
 		let deleteCell = document.createElement("td");
-		let deleteButton = document.createElement("button");
+		let deleteButton = document.createElement("i");
 		deleteButton.classList.add("delete-btn");
+		deleteButton.classList.add("fa-solid");
+		deleteButton.classList.add("fa-trash-can");
+		deleteButton.classList.add("fa-lg");
+
 		deleteCell.appendChild(deleteButton);
 		deleteButton.addEventListener("click", () => {
 			deleteBook(book);
@@ -112,12 +115,12 @@ function getIndex(row) {
 	return index;
 }
 
-book1 = new Book("Hausifant", "Bernd", "567", true);
-book2 = new Book("Cati", "Gerhardt", "327", false);
-book3 = new Book("The Thing", "Klaus", "731", false);
-book4 = new Book("Open Book", "Nora", "123", true);
-book5 = new Book("Animals", "Otto", "379", true);
-book6 = new Book("How to", "Michi", "1326", false);
+book1 = new Book("Bernd, Böhme", "Hausifant", "567", true);
+book2 = new Book("Gerhardt, Gurt", "Cati", "327", false);
+book3 = new Book("Klaus, Klausen", "The Thing", "731", false);
+book4 = new Book("Nora, Norington", "Open Book", "123", true);
+book5 = new Book("Otto, Ottington", "Animals", "379", true);
+book6 = new Book("Michi, Michaelis", "How to", "1326", false);
 
 libary.push(book1, book2, book3, book4, book5, book6);
 buildLibary();

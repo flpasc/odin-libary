@@ -139,7 +139,11 @@ label {
 	align-items: center;
 }
 
-.bt-delete {
-	background-color: red;
+.delete-btn {
 	padding: 10px;
+}
+
+.delete-btn:hover {
+	transform: scale(1.2);
+	color: rgb(133, 20, 20);
 }

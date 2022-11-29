@@ -15,8 +15,34 @@ table {
 
 th {
 	padding: 10px;
+	padding-left: 20px;
 	text-align: start;
 	background-color: rgb(179, 213, 230);
+}
+
+th:first-child {
+	width: 6%;
+}
+
+th:nth-child(n + 4) {
+	width: 10%;
+}
+
+td {
+	padding: 8px 5px;
+	padding-left: 10px;
+}
+
+td:first-child {
+	text-align: center;
+	font-weight: 900;
+	background-color: rgba(179, 213, 230, 0.666);
+}
+
+td:nth-child(n + 4) {
+	padding: 0px;
+	text-align: center;
+	vertical-align: center;
 }
 
 button {
@@ -113,9 +139,7 @@ label {
 	align-items: center;
 }
 
-th:first-child {
-	width: 15%;
-}
-th:nth-child(n + 4) {
-	width: 10%;
+.bt-delete {
+	background-color: red;
+	padding: 10px;
 }

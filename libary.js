@@ -2,6 +2,7 @@ let newBook = document.getElementById("new-book");
 let submitBook = document.getElementById("submit");
 let table = document.getElementById("table");
 let libary = [];
+let libIndex = 1;
 
 function openForm() {
 	document.getElementById("add-popup").style.display = "block";
@@ -33,20 +34,18 @@ function addToLibary() {
 
 class Book {
 	constructor(author, title, pages, read) {
+		this.index = 0;
+
 		this.author = author;
 		this.title = title;
 		this.pages = pages;
 		this.read = read;
 	}
-
-	deleteBook() {
-		console.log("delete Book");
-	}
 }
 
 function buildLibary() {
 	clearTable();
-	let headers = ["Author", "Title", "Pages", "Read", ""];
+	let headers = ["No.", "Author", "Title", "Pages", "Read", ""];
 	headers.forEach((headerInfo) => {
 		let header = document.createElement("th");
 		let textNode = document.createTextNode(headerInfo);
@@ -57,18 +56,60 @@ function buildLibary() {
 	libary.forEach((book) => {
 		row = document.createElement("tr");
 
-		Object.values(book).forEach((info) => {
-			let cell = document.createElement("td");
-			let textNode = document.createTextNode(info);
-			cell.appendChild(textNode);
-			row.appendChild(cell);
+		let indexCell = document.createElement("td");
+
+		let indexNumber = document.createTextNode(libary.indexOf(book) + 1);
+		indexCell.appendChild(indexNumber);
+		row.appendChild(indexCell);
+
+		let cell = document.createElement("td");
+		let checkboxCell = document.createElement("input");
+		checkboxCell.type = "checkbox";
+		checkboxCell.className = "read-checkbox";
+		cell.appendChild(checkboxCell);
+
+		let deleteCell = document.createElement("td");
+		let deleteButton = document.createElement("button");
+		deleteButton.classList.add("delete-btn");
+		deleteCell.appendChild(deleteButton);
+		deleteButton.addEventListener("click", () => {
+			deleteBook(book);
 		});
+
+		Object.values(book).forEach((info) => {
+			if (info === book.index) {
+				return;
+			}
+
+			if (info != true && info != false) {
+				let cell = document.createElement("td");
+				let textNode = document.createTextNode(info);
+				cell.appendChild(textNode);
+				row.appendChild(cell);
+			}
+			if (info === true) {
+				checkboxCell.checked = true;
+			}
+		});
+		row.appendChild(cell);
+		row.appendChild(deleteCell);
 		table.appendChild(row);
 	});
 }
 
 function clearTable() {
 	table.innerHTML = "";
+}
+
+function deleteBook(book) {
+	libary.splice(book.index - 1, 1);
+	buildLibary();
+	console.log(book.index);
+}
+
+function getIndex(row) {
+	let index = row.index;
+	return index;
 }
 
 book1 = new Book("Hausifant", "Bernd", "567", true);

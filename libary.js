@@ -1,6 +1,8 @@
 let newBook = document.getElementById("new-book");
-let submitBook = document.getElementById("submit");
+let submitBook = document.getElementById("submit-btn");
+let closeButton = document.getElementById("close-btn");
 let table = document.getElementById("table");
+
 let libary = [];
 let libIndex = 1;
 
@@ -8,15 +10,50 @@ function openForm() {
 	document.getElementById("add-popup").style.display = "block";
 }
 
+function validityCheck() {
+	let bookAuthor = document.getElementById("author").value;
+	let bookTitle = document.getElementById("title").value;
+	let bookPages = document.getElementById("pages").value;
+
+	console.log(bookAuthor);
+	console.log(bookTitle);
+	console.log(bookPages);
+
+	if (bookAuthor.length === 0 || bookTitle.length === 0 || bookPages.length === 0) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function clearForm() {
+	let bookAuthor = document.getElementById("author");
+	let bookTitle = document.getElementById("title");
+	let bookPages = document.getElementById("pages");
+
+	bookAuthor.value = "";
+	bookTitle.value = "";
+	bookPages.value = "";
+}
+
 function closeForm() {
+	if (validityCheck() === false) {
+	}
 	document.getElementById("add-popup").style.display = "none";
 }
 
 newBook.addEventListener("click", openForm);
 submitBook.addEventListener("click", () => {
-	console.log("submit");
-	addToLibary();
+	if (validityCheck() === false) {
+		console.log("form uncomplete");
+		return;
+	} else {
+		console.log("book submited");
+		addToLibary();
+		clearForm();
+	}
 });
+closeButton.addEventListener("click", closeForm);
 
 function addToLibary() {
 	author = document.getElementById("author").value;
@@ -29,7 +66,7 @@ function addToLibary() {
 	buildLibary();
 	closeForm();
 	console.table(libary);
-	console.log("add to libary");
+	console.log("added to libary");
 }
 
 class Book {
@@ -115,12 +152,12 @@ function getIndex(row) {
 	return index;
 }
 
-book1 = new Book("Bernd, Böhme", "Hausifant", "567", true);
-book2 = new Book("Gerhardt, Gurt", "Cati", "327", false);
-book3 = new Book("Klaus, Klausen", "The Thing", "731", false);
-book4 = new Book("Nora, Norington", "Open Book", "123", true);
-book5 = new Book("Otto, Ottington", "Animals", "379", true);
-book6 = new Book("Michi, Michaelis", "How to", "1326", false);
+book1 = new Book("Malfoy, Lucious", "Dark Magic for dummies", "567", true);
+book2 = new Book("Granger, Hermoine", "My live as a know-it-all", "834", false);
+book3 = new Book("Harry, Potter", "Look at me, I´m Harry Potter", "251", false);
+book4 = new Book("Keeper, Hagrid", "Taiming a giant", "52", true);
+book5 = new Book("Black, Sirius", "Azkaban from the inside", "672", true);
+book6 = new Book("Weesley, Ronald", "How did i wrote this", "1326", false);
 
 libary.push(book1, book2, book3, book4, book5, book6);
 buildLibary();

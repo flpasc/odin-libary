@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
 body {
+	font-family: "Playfair Display", serif;
 	margin: 0px;
 	padding: 0px;
 }
@@ -17,7 +20,7 @@ th {
 	padding: 10px;
 	padding-left: 20px;
 	text-align: start;
-	background-color: rgb(179, 213, 230);
+	background-color: rgb(167, 115, 47);
 }
 
 th:first-child {
@@ -36,7 +39,7 @@ td {
 td:first-child {
 	text-align: center;
 	font-weight: 900;
-	background-color: rgba(179, 213, 230, 0.666);
+	background-color: rgb(167, 115, 47);
 }
 
 td:nth-child(n + 4) {
@@ -47,8 +50,16 @@ td:nth-child(n + 4) {
 
 button {
 	appearance: none;
+	border: 2px solid black;
 	padding: 5px 20px;
-	box-shadow: 2px 2px 5px rgb(168, 166, 166);
+	box-shadow: 5px 2px 10px rgba(255, 194, 27, 0.687);
+	background-color: beige;
+	font-weight: 900;
+}
+
+button:hover {
+	transform: scale(1.05);
+	background-color: rgb(211, 175, 76);
 }
 
 tr {
@@ -56,11 +67,15 @@ tr {
 }
 
 tr:nth-child(even) {
-	background-color: rgb(174, 225, 174);
+	background-color: rgb(194, 163, 120);
+}
+
+tr:nth-child(odd) {
+	background-color: rgb(173, 144, 104);
 }
 
 tr:hover {
-	background-color: rgb(128, 230, 128);
+	background-color: rgb(208, 142, 49);
 }
 
 input {
@@ -76,6 +91,7 @@ input[type="checkbox"] {
 	height: 20px;
 	padding: 5px;
 	background-color: white;
+	accent-color: rgb(22, 150, 22);
 }
 
 label {
@@ -89,23 +105,46 @@ label {
 }
 
 .header {
-	background-color: beige;
+	background-image: url("https://wallpaper.dog/large/20513274.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-area: 1 / 1 / 2 / -1;
+	background-size: 200%;
 }
 
 .nav-bar {
+	background-image: url("https://wallpaper.dog/large/20513274.jpg");
+	background-position: right;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 200%;
+
 	height: 100vh;
 	background-color: rgb(206, 206, 228);
 }
 
 .content {
-	background-color: rgb(179, 240, 179);
+	background-image: url("https://wallpaper.dog/large/20513274.jpg");
+	background-position: right;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 200%;
 }
 
 .logo {
 	grid-column: 1 / 2;
+	position: relative;
+	margin: 2vh 4vw;
+}
+
+.logo > img {
+	border: 6px solid rgb(0, 0, 0);
+	height: 140px;
 }
 
 .links {
@@ -113,6 +152,7 @@ label {
 }
 
 .links ul {
+	margin-top: 3vh;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
@@ -125,7 +165,7 @@ label {
 	top: clamp(110px, 8.5vh, 9vh);
 	border: 2px solid black;
 	border-radius: 5px;
-	background-color: green;
+	background-color: rgb(207, 163, 106);
 }
 
 .form-container {
@@ -146,4 +186,28 @@ label {
 .delete-btn:hover {
 	transform: scale(1.2);
 	color: rgb(133, 20, 20);
+}
+
+.form-btn {
+	font-weight: 600;
+	background-color: beige;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid black;
+	box-shadow: 1px 1px 1px black;
+	margin: 2px 0px;
+	width: 140px;
+	height: 30px;
+	padding: 10px 5px;
+}
+
+.form-btn:hover {
+	transform: scale(1.01);
+	background-color: rgb(187, 187, 165);
+}
+
+#new-book {
+	margin-top: clamp(120px, 5vh, 6vh);
+	padding: 20px;
 }

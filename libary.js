@@ -37,7 +37,7 @@ function clearForm() {
 }
 
 function closeForm() {
-	if (validityCheck() === false) {
+	if (!validityCheck()) {
 	}
 	document.getElementById("add-popup").style.display = "none";
 }
